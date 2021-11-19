@@ -19,10 +19,10 @@ class testForm extends DuskTestCase
             $email = $faker->email;
             $phone = $faker->phone;
             $msg = '$faker->phone';
-            $filePath = 'https://netshow.test/files/arquivopessoal-'.$email.'.pdf';
+            $filePath = env('APP_URL').'/files/arquivopessoal-'.$email.'.pdf';
 
             $browser->visit('/') // Acessa a rota que de cadastro
-                ->attach('input.arquivo', 'C:\laragon\www\netshow\public\files\teste.pdf')
+                ->attach('input.arquivo', 'public\files\teste.pdf')
                 ->type('input.nome', $name) // Preenche nome
                 ->type('input.email', $email) // Preenche email
                 ->type('input.telefone', '1146530330') // Preenche email
