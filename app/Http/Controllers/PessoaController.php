@@ -74,7 +74,7 @@ class PessoaController extends Controller
             }
 
              //ENVIANDO EMAIL
-             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser('analitico01@gmail.com',env('MAIL_FROM_NAME'),$msg,$_SERVER['DOCUMENT_ROOT'].'/files/arquivopessoal-'.$pessoa->email.'.'.$ext));
+             \Illuminate\Support\Facades\Mail::send(new \App\Mail\SendMailUser(env('MAIL_USERNAME'),env('MAIL_FROM_NAME'),$msg,$_SERVER['DOCUMENT_ROOT'].'/files/arquivopessoal-'.$pessoa->email.'.'.$ext));
 
 
             return redirect()->route('pessoa.show',['pessoa' => $pessoa->id]);
